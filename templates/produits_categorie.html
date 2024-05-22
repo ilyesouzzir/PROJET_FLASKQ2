@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+    <br>
+    <h2>Votre sélection : {{ produits[0].titre_maison }}</h2>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                {% for prod in produits %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img loading="lazy" src="/static/images/{{ prod.image_maison }}" alt="image"/>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <!-- For debug Product {{ prod.id_maison }} and category {{ prod.type_maison }}<br> Image : {{ prod.image_maison }}<br> -->
+                                    <span class="titre"> {{ prod.titre_maison }} </span><br>
+                                    Type: {{ prod.type_maison }} <br>
+                                    Surface: {{ prod.surface }} m²<br>
+                                    Année de construction: {{ prod.annee_construction }}<br>
+                                    Ville: {{ prod.ville }}<br>
+                                    Prix: {{ prod.prix }} €
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group" id="remove_a">
+                                    </div>
+                                    <div class="btn-group">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
