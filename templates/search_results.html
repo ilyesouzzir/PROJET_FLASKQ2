@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Résultats de recherche</h1>
+    {% for result in results %}
+        <div>
+            <h2>{{ result.titre_maison }}</h2>
+            <p>Type: {{ result.type_maison }}</p>
+            <p>Surface: {{ result.surface }}</p>
+            <p>Année de construction: {{ result.annee_construction }}</p>
+            <p>Ville: {{ result.ville }}</p>
+            <p>Prix: {{ result.prix }}</p>
+            <img src="{{ url_for('static', filename=result.image_maison) }}" alt="{{ result.image_maison }}">
+            <h3>Agent</h3>
+            <p>Nom: {{ result.nom_agent }}</p>
+            <p>Prénom: {{ result.prenom_agent }}</p>
+            <p>Téléphone: {{ result.telephone_agent }}</p>
+            <p>Description: {{ result.description_agent }}</p>
+            <img src="{{ url_for('static', filename=result.image_agent) }}" alt="{{ result.nom_agent }}">
+        </div>
+    {% endfor %}
+{% endblock %}
